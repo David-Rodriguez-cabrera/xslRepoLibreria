@@ -30,36 +30,29 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:apply-templates select="autor"/>
         <xsl:apply-templates select="editor"/>
         <xsl:apply-templates select="precio"/>
-        <xsl:apply-templates select="numPaginas"/>
+        <!--xsl:value-of select="numPaginas"/!-->
         
-    </tr>
+    
 
 
     
 <xsl:choose>
         <xsl:when test="numPaginas &gt; 150">
-            <td bgcolor="#FE2300">
-                <xsl:value-of select="isbn"/>
-            </td>
-            <td bgcolor="#FE2300">
-                <xsl:value-of select="titulo"/>
-            </td>
-            <td bgcolor="#FE2300">
-                <xsl:value-of select="autor"/>
-            </td>
-            <td bgcolor="#FE2300">
-                <xsl:value-of select="editor"/>
-            </td>
-            <td bgcolor="#FE2300"> 
-                <xsl:value-of select="precio"/>
-            </td>
-                    <td bgcolor="#FE2300">
-                        <xsl:value-of select="numPaginas"/>
-                    </td>
+            
+            
+                        <xsl:apply-templates select="numPaginas"/>
+                    
                     
                 </xsl:when>
-                
+                <xsl:otherwise>
+                    <td>
+                        <xsl:value-of select = "numPaginas"/>
+                    </td>
+                </xsl:otherwise>
             </xsl:choose>
+        
+        </tr>
+        
         </xsl:template>
         
         <xsl:template match="isbn">
@@ -83,7 +76,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:value-of select="."/></td>
     </xsl:template>
     <xsl:template match="numPaginas">
-        <td bgcolor="DDEEDD">
+        <td bgcolor="FE2300">
         <xsl:value-of select="."/></td>
     </xsl:template>
 
