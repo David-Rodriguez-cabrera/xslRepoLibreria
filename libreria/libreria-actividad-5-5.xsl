@@ -45,7 +45,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
                     
                 </xsl:when>
                 <xsl:otherwise>
-                    <td>
+                    <td bgcolor="DDEEDD">
                         <xsl:value-of select = "numPaginas"/>
                     </td>
                 </xsl:otherwise>
